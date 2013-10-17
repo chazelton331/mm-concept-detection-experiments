@@ -28,7 +28,7 @@ function [bins,g,lambdas,pp]=numericalEigenFunctions(DATA,SIGMA,EPSILON)
   % This function should be called from eigenfunctions.m    
   % 
   % Version 1.0. Rob Fergus & Yair Weiss. 11/30/09.  
-  % updated Eleni Mantziou 10/15/2012
+  % modified Eleni Mantziou 10/15/2012
    
   % Default constant added to histogram to avoid regions of zero
   % density. See first (non-bulleted) paragraph of p.5 of the paper.

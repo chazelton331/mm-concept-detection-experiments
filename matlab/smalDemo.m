@@ -156,3 +156,18 @@ for current_desc=1:numDescriptors
     save([predictionsDir, '\mIAP',cell2mat(nameDescriptors{current_desc})],'mIAP');
     save([predictionsDir, '\mAP',cell2mat(nameDescriptors{current_desc})],'mAP');
 end
+
+
+
+% % plot results
+% figure
+% hold on
+% grid on
+% current_color = ('r');
+% plot(weight,mIAP(:),'-o','Color',current_color,'LineWidth',2,'MarkerFaceColor',current_color,'MarkerSize',5);
+% set(gca,'FontSize',14)
+%
+% axis([0 max(weight) 0 1])
+% ylabel('mIAP');
+% xlabel('\Lambda');
+% hold off
