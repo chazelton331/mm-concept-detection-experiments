@@ -2,7 +2,7 @@
 % of ALE for eigenfunction method for computing approximate
 % eigenvectors of graph Laplacian.
 %
-% This demo find the k-approximate smallest eigenvectors for every feature
+% This demo find the k-approximate eigenvectors for every feature
 % and concatenate all the eigenvectors. We call this method as "fusion of Laplacian Eigenmaps"
 % finally runs three different variant
 % of learning model methods:
@@ -40,8 +40,8 @@ clear;clc;
 k = 500;                            % number of eigenvectors
 sigma = 0.2;                        % controls affinity in graph Laplacian, how strong connected the edges are
 num_experiment=1;                   % holds the number of experiment to be saved
-nr_splits = 1;                      % in how many splits to splits the dataset. for Validation reasons.
-collectionFolder = 'flickr2013/';    % give a name of a folder to save experiments. just a convention
+nr_splits = 1;                      % in how many splits to splits the training dataset. for Validation reasons.
+collectionFolder = 'flickr2013/';   % give a name of a folder to save experiments. just a convention
 method = 'linear';                  % the training method (linear, rbf and smooth)
 
 % =========================SetPaths========================================
@@ -133,7 +133,7 @@ for current_split=1:nr_splits
     
     
     AP  = zeros(size(trainLabels,2),1);
-    InterPrecisionRecall = zeros(size(trainLabels,2),11);
+    InterPrecisionRecall = zeros(size(trainLabels,2),1);
     precistionStart=tic;
     for j=1:size(testLabels,2)
         [AP(j),InterPrecisionRecall(j,:),~] = statistics(testLabels(:,j),score(:,j)) ;

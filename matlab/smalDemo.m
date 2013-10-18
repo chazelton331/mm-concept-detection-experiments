@@ -2,7 +2,7 @@
 % of ALE for eigenfunction method for computing approximate
 % eigenvectors of graph Laplacian.
 %
-% This demo find the k-approximate smallest eigenvectors
+% This demo find the k-approximate eigenvectors
 % and runs three different variant of learning model methods:
 % 1. Linear SVM.
 % 2. RBF SVM.
@@ -38,14 +38,15 @@ clear;clc;
 k = 500;                            % number of eigenvectors
 sigma = 0.2;                        % controls affinity in graph Laplacian, how strong connected the edges are
 num_experiment=1;                   % holds the number of experiment to be saved
-nr_splits = 1;                      % in how many splits to splits the dataset. for Validation reasons.
-collectionFolder = 'flickr2013/';    % give a name of a folder to save experiments. just a convention
+nr_splits = 1;                      % in how many splits to splits the training dataset. for Validation reasons.
+collectionFolder = 'flickr2013/';   % give a name of a folder to save experiments. just a convention
 method = 'linear';                  % the training method (linear, rbf and smooth)
 
 % =========================SetPaths========================================
 dir_features ='./results/features/';
 dir_data = './results/data/';
 dir_predictions ='./results/predictions/';
+dir_images = './results/images/';
 
 % ==========================Set Features===================================
 nameDescriptors  = {{'siftpca1024'}};
@@ -127,7 +128,7 @@ for current_desc=1:numDescriptors
         
         
         AP  = zeros(size(trainLabels,2),1);
-        InterPrecisionRecall = zeros(size(trainLabels,2),11);
+        InterPrecisionRecall = zeros(size(trainLabels,2),1);
         precistionStart=tic;
         for j=1:size(testLabels,2)
             [AP(j),InterPrecisionRecall(j,:),~] = statistics(testLabels(:,j),score(:,j)) ;
@@ -157,17 +158,29 @@ for current_desc=1:numDescriptors
     save([predictionsDir, '\mAP',cell2mat(nameDescriptors{current_desc})],'mAP');
 end
 
+%----------------------------------------------------------------------
+% In this part examine the behavior of results by image snapshots
+% and creating plots 
+% for demonstration reason we have commented some of these tests.
+% you can select anything you find useful.
+
+%=========1. Retrieve Images & Create snapshots===========
+%----------------------------------------------------------------------
+% uncomment if you want to retrieve images
+        
+% fileImages = 'TheIDs';          % the name of image ids file. should be in txt format
+% fileConcepts = 'concepts';      % the name of concepts file. should be in txt format
+% nPhotosR = 20;                  % number of top-n photos to retrieve
+% 
+% createSnapshots(score,testListID,size(score,2),nPhotosR,dir_data,collectionFolder,fileImages,dir_images,fileConcepts);
+
+%=========2. Create Plots===========
+%----------------------------------------------------------------------
+% uncomment if you want to extract plots
+% InterPrecisionRecall_other        %InterPrecisionRecall_other of another
+% framework or validation set
+% score_other                       %prediction scores of another
+% framework or validation set
+% testResults (size(testLabels,2),InterPrecisionRecall_other,InterPrecisionRecall,score_other,score,nr_splits);
 
 
-% % plot results
-% figure
-% hold on
-% grid on
-% current_color = ('r');
-% plot(weight,mIAP(:),'-o','Color',current_color,'LineWidth',2,'MarkerFaceColor',current_color,'MarkerSize',5);
-% set(gca,'FontSize',14)
-%
-% axis([0 max(weight) 0 1])
-% ylabel('mIAP');
-% xlabel('\Lambda');
-% hold off
