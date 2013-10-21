@@ -39,7 +39,7 @@ Any data like groundtruth or lists refering to ids indeces to split a dataset of
 
 [*] CollectionFolder should be a name given to a dataset. For example, for Flikcr dataset we have set the CollectionFolder as flick2013. 
 
-*Results	
+* Results	
 Any results should be place in _results/predictions_ folder	
 
 ###More Semantics for Running the Code###
@@ -62,7 +62,7 @@ The 4 included folders  are:
 * incremental: functions used in incremental computation 
 * utility: general functions used many times in the procedure. 	
 
-* _Used Libraries_	
+_Used Libraries_	
 In order to make possible to run the aforementioned demos you must insert in matlab path the libraries bellow:
 
 1. Liblinear - http://www.csie.ntu.edu.tw/~cjlin/liblinear/	
@@ -71,7 +71,13 @@ In order to make possible to run the aforementioned demos you must insert in mat
 4. vlFeat - http://www.vlfeat.org/	
 
 ###Matlab Results###
-The final outcome from the aforementioned files is the prediction scores from each descriptor in _../results/predictions/"collectionFolder"/"nameOfDescriptor"/predictionScore\_[num]split\_[num].mat_ and some accuracy metrics like mean Interpolated Average precision in _../results/predictions/"collectionFolder"/"nameOfDescriptor"/mIAP.mat_. The results from fusionDemos are in _../results/predictions/"collectionFolder"/Fusion/predictionScore\_[num]split\_[num].mat_ and _../results/predictions/"collectionFolder"/Fusion/mIAP.mat_. Finally, the results from IncrementalDemos are in _../results/predictions/"collectionFolder"/Incremental/"nameOfDescriptor"/predictionScore\_[num]split\_[num].mat_ and _../results/predictions/"collectionFolder"/Incremental/"nameOfDescriptor"/mIAP.mat_.	
+The final outcome from the aforementioned files is the prediction scores from each descriptor in _../results/predictions/"collectionFolder"/"nameOfDescriptor"/predictionScore\_[num]split\_[num].mat_ 
+and some accuracy metrics like mean Interpolated Average precision in
+_../results/predictions/"collectionFolder"/"nameOfDescriptor"/mIAP.mat_. 
+The results from fusionDemos are in
+_../results/predictions/"collectionFolder"/Fusion/predictionScore\_[num]split\_[num].mat_ and _../results/predictions/"collectionFolder"/Fusion/mIAP.mat_. 
+Finally, the results from IncrementalDemos are in _../results/predictions/"collectionFolder"/Incremental/"nameOfDescriptor"/predictionScore\_[num]split\_[num].mat_ 
+and _../results/predictions/"collectionFolder"/Incremental/"nameOfDescriptor"/mIAP.mat_.	
 
 In _../results/images_ users can include the images from a dataset in case they want to extract test results according to top-k precision of images/concept. Optionally, users can extract graphical statistics from the results.	
 
