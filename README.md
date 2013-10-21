@@ -25,7 +25,7 @@ This distribution contains the following:
 ##Evolution analysis using Matlab##
 
 * Features	
-Any new features to be analyzed should be placed in the _../results/features/"collectionFolder"_ [*] folder. Preferably, feature data should be in matlab format (*.mat) of the form:	
+Any new features to be analyzed should be placed in the _../results/features/"collectionFolder"_ [\*] folder. Preferably, feature data should be in matlab format (*.mat) of the form:	
 
 				vec1 vec2 vec3.....vecn	
 				
