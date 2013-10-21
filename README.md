@@ -3,9 +3,6 @@ mm-concept-detection-experiments
 
 ###A framework (SMaL) for various multimedia concept detection experiments from social networks.
 
-
-
-
 We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of Matlab and Java scripts (to be included) that enable the multimedia detection. More specifically, from the datasets users may extract SIFT/color-SIFT descriptos (Dense sampling) with VLAD encoding and can reduce their dimensionality by PCA. Then, the descriptors are used to compute the eigenfunctions and top-k eigenvalues [4]. Approximate Laplacian Eigenmaps are derived improving the time complexity. Finally, these Laplacian Eigenmaps are used as new feature vectors to a classifier[2]. Furthemore, if the test set is unknown user can use an Incremental method to combine both the training and test data and extract the Laplacian Eigenmaps [3]. The prediction scores are ranked according to various accuracy metrics (ex. mean Average Precision, AUC curves, F1-score etc.). 
 
 * The master branch of this repository contains ongoing matlab and java files which form the current stable version of the framework. 
