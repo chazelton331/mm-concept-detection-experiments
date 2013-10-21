@@ -40,7 +40,7 @@ dir_data = './results/data/';
 dir_predictions ='./results/predictions/';
 
 % ==========================Set Features===================================
-nameDescriptors  = {{'siftpca1024'}};
+nameDescriptors  = {{'siftpca1024'}};         % name of features
 numDescriptors = length(nameDescriptors);
 
 
@@ -209,8 +209,8 @@ for current_desc=1:numDescriptors
     end
     fprintf('MiAP %6.4f \n',avgmIAP);
     fprintf('MAP %6.4f \n',avgmAP);
-    save([predictionsDir, '\mIAP',cell2mat(nameDescriptors{current_desc})],'mIAP');
-    save([predictionsDir, '\mAP',cell2mat(nameDescriptors{current_desc})],'mAP');
+    save([predictionsDir, '\mIAP'],'mIAP');
+    save([predictionsDir, '\mAP'],'mAP');
 end
 
 

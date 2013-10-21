@@ -50,7 +50,7 @@ dir_data = './results/data/';
 dir_predictions ='./results/predictions/';
 
 % ==========================Set Features===================================
-nameDescriptors  = {{'siftpca1024'}};
+nameDescriptors  = {{'siftpca1024'}};       % name of features
 numDescriptors = length(nameDescriptors);
 
 mAP = zeros(nr_splits,1);

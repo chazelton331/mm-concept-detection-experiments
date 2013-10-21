@@ -21,8 +21,8 @@
 % [1] S. Papadopoulos, C. Sagonas, Y. Kompatsiaris, A. Vakali. Semi-supervised concept detection by learning the 
 % structure of similarity graphs. 19th international conference on Multimedia Modeling (MMM 2013), 
 % accepted for publication. 
-% [2] P. Jia, J. Yin, X. Huang, D. Hu.  Incremental Laplacian Eigenmaps by preserving adjacent information between
-% data points. Pattern Recognition Letters, 30 (16) (2009), pp. 1457–1463
+% [2] L. Tang, H. Liu.  Relational Learning via Latent Social Dimensions. In Proceedings of The 15th ACM SIGKDD 
+% Conference on Knowledge Discovery and Data Mining (KDD’09), Pages 817–826, 2009.
 % Version 1.0. Eleni Mantziou. 9/1/12.
 
 clear;clc;
