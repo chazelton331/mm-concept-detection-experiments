@@ -158,6 +158,7 @@ for current_desc=1:numDescriptors
     save([predictionsDir, '\mAP',cell2mat(nameDescriptors{current_desc})],'mAP');
 end
 
+
 %----------------------------------------------------------------------
 % In this part examine the behavior of results by image snapshots
 % and creating plots 
@@ -182,5 +183,6 @@ end
 % score_other                       %prediction scores of another
 % framework or validation set
 % testResults (size(testLabels,2),InterPrecisionRecall_other,InterPrecisionRecall,score_other,score,nr_splits);
+
 
 
