@@ -25,12 +25,12 @@ This distribution contains the following:
 ##Evolution analysis using Matlab##
 
 * Features	
-Any new features to be analyzed should be placed in the _../results/features/"collectionFolder"_ [*] folder. Preferably, feature data should be in matlab format (*.mat) of the form:	
+Any new features to be analyzed should be placed in the _../results/features/"collectionFolder"_ [\*] folder. Preferably, feature data should be in matlab format (*.mat) of the form:	
 
 				vec1 vec2 vec3.....vecn	
 				
 * Necessary Data	
-Any data like groundtruth or lists refering to ids indeces to split a dataset of images should be place in _..results/data/"collectionFolder"_ [*] folder. Preferably, these data should be in matlab format (*.mat). Groundtruth should be of the form:
+Any data like groundtruth or lists refering to ids indeces to split a dataset of images should be place in _..results/data/"collectionFolder"_ [\*] folder. Preferably, these data should be in matlab format (*.mat). Groundtruth should be of the form:
 
 				label_class1 label_class2 ......label_classn
 
