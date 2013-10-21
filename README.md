@@ -14,7 +14,7 @@ are ranked and presented to the user in accordance to three factors; stability, 
 
 [1] Datasets collected using a set of manually selected groups [1a] or hashtags[1b]. Datasets are password protected (password: socialsensor).	 
 [1a] http://www.socialsensor.eu/datasets/mm-concept-detection-dataset-2013/mm-concept-detection-datasets.zip
-_Alternatively_, users can use the _"flickr2013-image-urls.txt"_ file to download the Flickr dataset from the Urls.	
+_Alternatively_, users can use the _"flickr2013-image-urls.txt"_ file to download the Flickr dataset from the Urls.			
 [1b] http://www.socialsensor.eu/datasets/mm-concept-detection-dataset-2013/mm-concept-detection-twitter2013-images.zip	
 [2] E. Mantziou, S. Papadopoulos, Y. Kompatsiaris. "Large-Scale Semi-Supervised Learning by Approximate Laplacian Eigenmaps, VLAD and Pyramids". In Proceedings of WIA2MIS 2013, Paris, France.  
 [3] E. Mantziou, S. Papadopoulos, Y. Kompatsiaris. "Scalable Training with Approximate Incremental Laplacian Eigenmaps and PCA". In Proceedings of ACM Yahoo Grand Challenge 2013, ACM Multimedia MM'13, Barcelona, Spain.
