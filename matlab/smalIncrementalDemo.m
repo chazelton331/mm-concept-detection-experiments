@@ -168,7 +168,7 @@ for current_desc=1:numDescriptors
         % score = normalizeMatrix(score,4);
         
         %======================make dir to save experiments================
-        predictionsDir = [dir_predictions,collectionFolder,'IncrementalSvm\',cell2mat(nameDescriptors{current_desc})];
+        predictionsDir = [dir_predictions,collectionFolder,'Incremental\',cell2mat(nameDescriptors{current_desc})];
         if (exist(predictionsDir,'dir')==0)
             mkdir (predictionsDir)
         end

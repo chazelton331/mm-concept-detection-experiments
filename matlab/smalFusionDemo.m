@@ -118,7 +118,7 @@ for current_split=1:nr_splits
     % score = normalizeMatrix(score,4);
     
     %======================make dir to save experiments================
-    predictionsDir = [dir_predictions,collectionFolder];
+    predictionsDir = [dir_predictions,collectionFolder,'Fusion'];
     if (exist(predictionsDir,'dir')==0)
         mkdir (predictionsDir)
     end
