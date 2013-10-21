@@ -71,7 +71,7 @@ In order to make possible to run the aforementioned demos you must insert in mat
 4. vlFeat - http://www.vlfeat.org/	
 
 ###Matlab Results###
-The final outcome from the aforementioned files is the prediction scores from each descriptor in _../results/predictions/"collectionFolder"/"nameOfDescriptor"/predictionScore\_[num]split\_[num].mat_ 
+The final outcome from the aforementioned files is the prediction scores from each descriptor in _../results/predictions/"collectionFolder"/"nameOfDescriptor"/predictionScore\_ [num]split\_[num].mat_ 
 and some accuracy metrics like mean Interpolated Average precision in
 _../results/predictions/"collectionFolder"/"nameOfDescriptor"/mIAP.mat_. 
 The results from fusionDemos are in
