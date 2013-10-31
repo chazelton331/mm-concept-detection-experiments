@@ -18,10 +18,10 @@ We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of 
 This distribution contains the following:  
 * a readme.txt file with instructions on how to use the different parts of the framework;
 * a set of Matlab scripts (in the /matlab folder) that are used to conduct SMaL.
-* a set of java scripts (in the /java folder (to be included)) that are used to conduct SMaL and a set of Java and Matlab scripts  that are used to extract the features in a "Matlab friendly" form.
+* a set of java scripts (in the /java folder (to be included)) that are used to conduct SMaL and a set of Java and Matlab scripts that are used to extract the features in a "Matlab friendly" form.
 
 
-##Evolution analysis using Matlab##
+##SMaL using Matlab##
 
 * Features	
 Any new features to be analyzed should be placed in the _../results/features/"collectionFolder"_ [\*] folder. Preferably, feature data should be in matlab format (*.mat) of the form:	
