@@ -98,7 +98,7 @@ You can update these variables by implementing the code below.
 
 -In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>.
 
--In <code>Detector</code> is the integration of matlab code. We call the matlab functions to apply the incremental procedur of SMaL and classify the data points.
+-In <code>Detector</code> is the integration of matlab code. We call the matlab functions to apply the incremental procedure of SMaL and classify the data points.
 
 -In <code>UpdateParameters</code> you can update the training parameters values ( *twitter\_training\_params.m*) if you need to enlarge the graph. 
    
