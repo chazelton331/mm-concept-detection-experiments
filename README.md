@@ -80,7 +80,7 @@ In _../results/images_ users can include the images from a dataset in case they 
 
 
 ##SMaL using Java##
-You can use the Example file to run a tutorial from SMaL writtern in Java. More specifically, we have implemented the above matlab code to java and read matlab files from java. You can only implement the incremental procedure [3].
+You can use the Example file (from <code>gr.iti.mklab.detector.examples</code> package.) to run a tutorial from SMaL writtern in Java. More specifically, we have implemented the above matlab code to java and we can also read matlab files from java. In java you can only apply the incremental procedure as described in [3].
 
 * Features	
 To extract features you need to configure in your build path the following code, available in github:
