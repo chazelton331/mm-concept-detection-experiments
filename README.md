@@ -85,12 +85,12 @@ You can use the Example file to run a tutorial from SMaL writtern in Java. More 
 * Features	
 To extract features you need to configure in your build path the following code, available in github:
 
-	https://github.com/socialsensor/multimedia-indexing
+	           https://github.com/socialsensor/multimedia-indexing
 
-With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduced dimension applying PCA.
+With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduce dimension of vector by applying PCA.
 
 * Necessary Data	
-The file _twiiter_training_params.mat_ include variables from twitter2013 dataset which are necessary to resume with the incremental procedure.
+The file _twiiter\_training\_params.mat_ includes variables from twitter2013 dataset which are necessary to resume the incremental procedure.
 You can upadate these variables by implementing the code below.
 
 
@@ -98,11 +98,11 @@ You can upadate these variables by implementing the code below.
 The matlab code consists of 4 files which can work as standalone scripts and 4 folders which contains functions, which include algorithm scripts or scripts to run the Demos.   
 These 4 files are:  
 * <code>SurfExtraction</code>  
-    This .m file extracts the SMaL framework by computing the Laplacian Eigenmaps for different features. 
+    This file extracts the SMaL framework by computing the Laplacian Eigenmaps for different features. 
 * <code>Detector</code>  
-    This .m file extracts the SMaL framework by computing the Laplacian Eigenmaps and by fusioning them.  
+    This file extracts the SMaL framework by computing the Laplacian Eigenmaps and by fusioning them.  
 * <code>UpdateParameters</code>  
-    This .m file extracts the SMaL framework by computing the training Laplacian Eigenmaps and then with Incremental method compute the test Laplacian Eigenmaps in batches for different features.
+    This file extracts the SMaL framework by computing the training Laplacian Eigenmaps and then with Incremental method compute the test Laplacian Eigenmaps in batches for different features.
 You can extract your statistics (Average Precision, 11-point Interpolated Precision) using the classes of the
 <code>gr.iti.mklab.detector.statistics</code> package.
 
