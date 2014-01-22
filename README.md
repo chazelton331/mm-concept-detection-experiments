@@ -3,7 +3,7 @@ mm-concept-detection-experiments
 
 ###A framework (SMaL) for various multimedia concept detection experiments from social networks.
 
-We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of Matlab and Java scripts (to be included) that enable the multimedia detection. More specifically, from the datasets users may extract SIFT/color-SIFT descriptos (Dense sampling) with VLAD encoding and can reduce their dimensionality by PCA. Then, the descriptors are used to compute the eigenfunctions and top-k eigenvalues [4]. Approximate Laplacian Eigenmaps are derived improving the time complexity. Finally, these Laplacian Eigenmaps are used as new feature vectors to a classifier[2]. Furthemore, if the test set is unknown user can use an Incremental method to combine both the training and test data and extract the Laplacian Eigenmaps [3]. The prediction scores are ranked according to various accuracy metrics (ex. mean Average Precision, AUC curves, F1-score etc.). 
+We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of Matlab and Java scripts that enable the multimedia detection. More specifically, from the datasets users may extract SIFT/color-SIFT descriptos (Dense sampling) with VLAD encoding and can reduce their dimensionality by PCA. Then, the descriptors are used to compute the eigenfunctions and top-k eigenvalues [4]. Approximate Laplacian Eigenmaps are derived improving the time complexity. Finally, these Laplacian Eigenmaps are used as new feature vectors to a classifier [2]. Furthemore, if the test set is unknown user can use an Incremental method to combine both the training and test data and extract the Laplacian Eigenmaps [3]. The prediction scores are ranked according to various accuracy metrics (ex. mean Average Precision, AUC curves, F1-score etc.). 
 
 * The master branch of this repository contains ongoing matlab and java files which form the current stable version of the framework. 
 
@@ -18,7 +18,7 @@ We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of 
 This distribution contains the following:  
 * a readme.txt file with instructions on how to use the different parts of the framework;
 * a set of Matlab scripts (in the /matlab folder) that are used to conduct SMaL.
-* a set of java scripts (in the /java folder (to be included)) that are used to conduct SMaL and a set of Java and Matlab scripts that are used to extract the features in a "Matlab friendly" form.
+* a set of java scripts (in the /java folder) that are used to conduct SMaL and a set of Java and Matlab scripts that are used to extract the features in a "Matlab friendly" form.
 
 
 ##SMaL using Matlab##
@@ -77,6 +77,42 @@ and _../results/predictions/"collectionFolder"/Incremental/"nameOfDescriptor"/mI
 
 In _../results/images_ users can include the images from a dataset in case they want to extract test results according to top-k precision of images/concept. Optionally, users can extract graphical statistics from the results.	
 
+
+
+##SMaL using Java##
+You can use the Example file to run a tutorial from SMaL writtern in Java. More specifically, we have implemented the above matlab code to java and read matlab files from java. You can only implement the incremental procedure [3].
+
+* Features	
+To extract features you need to configure in your build path the following code, available in github:
+
+	https://github.com/socialsensor/multimedia-indexing
+
+With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduced dimension applying PCA.
+
+* Necessary Data	
+The file _twiiter_training_params.mat_ include variables from twitter2013 dataset which are necessary to resume with the incremental procedure.
+You can upadate these variables by implementing the code below.
+
+
+###More Semantics for Running the Code ###
+The matlab code consists of 4 files which can work as standalone scripts and 4 folders which contains functions, which include algorithm scripts or scripts to run the Demos.   
+These 4 files are:  
+* <code>SurfExtraction</code>  
+    This .m file extracts the SMaL framework by computing the Laplacian Eigenmaps for different features. 
+* <code>Detector</code>  
+    This .m file extracts the SMaL framework by computing the Laplacian Eigenmaps and by fusioning them.  
+* <code>UpdateParameters</code>  
+    This .m file extracts the SMaL framework by computing the training Laplacian Eigenmaps and then with Incremental method compute the test Laplacian Eigenmaps in batches for different features.
+You can extract your statistics (Average Precision, 11-point Interpolated Precision) using the classes of the
+<code>gr.iti.mklab.detector.statistics</code> package.
+
+_Used Libraries_	
+In order to make possible to run the aforementioned demos you must insert in matlab path the libraries bellow:
+
+1. jamtio - http://sourceforge.net/projects/jmatio/	
+2. javabuilder (matlab R2012a 7.17) - http://www.mathworks.com/products/compiler/mcr/
+3. smal - 
+	
 
 
 
