@@ -85,7 +85,7 @@ You can use the Example file (from <code>gr.iti.mklab.detector.examples</code> p
 * Features	
 To extract features you need to configure in your build path the following code, available in github:
 
-	           https://github.com/socialsensor/multimedia-indexing
+ https://github.com/socialsensor/multimedia-indexing
 
 With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduce dimension of vector by applying PCA.
 
