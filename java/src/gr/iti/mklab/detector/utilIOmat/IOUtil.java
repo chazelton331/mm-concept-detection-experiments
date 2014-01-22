@@ -7,7 +7,7 @@ import com.jmatio.io.MatFileReader;
 import com.jmatio.types.MLDouble;
 import com.jmatio.types.MLStructure;
 
-public abstract class IOUtil {
+public class IOUtil {
 
 	/**
 	 * the training eigenvalues array, size 500x500
@@ -33,9 +33,22 @@ public abstract class IOUtil {
 	 *  groundtruth for training set, size nxnClasses (ex. ~14000x6)
 	 */
 	public static double[][] trainLabels; //
+	
+	
+	
+	
+	public IOUtil(double[][] ddtrain,double[][] uutrain,double[][] bins_out,double[][] uu1,double[] jj,double[][] trainLabels) {
+		this.ddtrain = ddtrain;
+		this.uutrain = uutrain;
+		this.bins_out = bins_out;
+		this.uu1 = uu1;
+		this.jj = jj;
+		this.trainLabels = trainLabels;
+		
+	}	
 
 
-	public static void readingMatlabFile() throws IOException{
+	public static IOUtil readingMatlabFile() throws IOException{
 
 
 		//array name
@@ -52,6 +65,8 @@ public abstract class IOUtil {
 		MLDouble mluu1 = (MLDouble)mlArrayRetrived.getField("uu1");
 		MLDouble mljj = (MLDouble)mlArrayRetrived.getField("jj");
 		MLDouble mltrainLabels = (MLDouble)mlArrayRetrived.getField("trainLabels");
+		
+		MLDouble mltestLabels = (MLDouble)mlArrayRetrived.getField("testLabels");
 
 
 		/**
@@ -85,6 +100,9 @@ public abstract class IOUtil {
 
 		trainLabels = new double[mltrainLabels.getM()][mltrainLabels.getN()];
 		trainLabels=  mltrainLabels.getArray();
+		
+		
+		
 
 //		for (int i=0; i<mltrainLabels.getM();i++){
 //			for(int j=0;j<mltrainLabels.getN();j++){
@@ -95,9 +113,33 @@ public abstract class IOUtil {
 //			System.out.println();
 //		}
 
-
+		return new IOUtil(ddtrain,uutrain,bins_out,uu1,jj,trainLabels);
 
 	}
 
-
+	public double[][] getddtrain(){
+		return ddtrain;
+	}
+	
+	public double[][] getuutrain(){
+		return uutrain;
+	}
+	
+	public double[][] getbins_out(){
+		return bins_out;
+	}
+	
+	public double[][] getuu1(){
+		return uu1;
+	}
+	
+	public double[] getjj(){
+		return jj;
+	}
+	
+	public double[][] gettrainLabels(){
+		return trainLabels;
+	}
+	
+	
 }
