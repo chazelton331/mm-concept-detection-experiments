@@ -87,24 +87,25 @@ To extract features you need to configure in your build path the following code,
 
  https://github.com/socialsensor/multimedia-indexing
 
-With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduce dimension of vector by applying PCA.
+With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduce the dimension of vector by applying PCA.
 
 * Necessary Data	
 The file *twitter\_training\_params.m* includes variables from twitter2013 dataset which are necessary to resume the incremental procedure.
-You can upadate these variables by implementing the code below.
+You can update these variables by implementing the code below.
 
 
 ###More Semantics for Running the Code ###
-The matlab code consists of 4 files which can work as standalone scripts and 4 folders which contains functions, which include algorithm scripts or scripts to run the Demos.   
-These 4 files are:  
-* <code>SurfExtraction</code>  
-    <!-- This file extracts the SMaL framework by computing the Laplacian Eigenmaps for different features.  -->
-* <code>Detector</code>  
-    <!-- This file extracts the SMaL framework by computing the Laplacian Eigenmaps and by fusioning them.   -->
-* <code>UpdateParameters</code>  
-    <!-- This file extracts the SMaL framework by computing the training Laplacian Eigenmaps and then with Incremental method compute the test Laplacian Eigenmaps in batches for different features. -->
-You can extract your statistics (Average Precision, 11-point Interpolated Precision) using the classes of the
+
+-In our example we have extracted Surf Descriptors with VLAD encoding and by applying PCA,using the code included in <code>SurfExtraction</code>.
+
+-In <code>Detector</code>  
+
+-in <code>UpdateParameters</code>  
+   
+-You can extract your statistics (Average Precision, 11-point Interpolated Precision) using the classes of the
 <code>gr.iti.mklab.detector.statistics</code> package.
+
+-In <code>IOUtil</code> 
 
 _Used Libraries_	
 In order to make possible to run the aforementioned demos you must insert in matlab path the libraries bellow:
