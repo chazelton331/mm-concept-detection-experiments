@@ -98,14 +98,14 @@ You can update these variables by implementing the code below.
 
 -In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>.
 
--In <code>Detector</code>  
+-In <code>Detector</code> is the integration of matlab code. We call the matlab functions to apply the incremental procedur of SMaL and classify the data points.
 
--in <code>UpdateParameters</code>  
+-In <code>UpdateParameters</code> you can update the training parameters values ( *twitter\_training\_params.m*) if you need to enlarge the graph. 
    
 -You can extract your statistics (Average Precision, 11-point Interpolated Precision) using the classes of the
 <code>gr.iti.mklab.detector.statistics</code> package.
 
--In <code>IOUtil</code> 
+-In <code>IOUtil</code> you can find useful methods to read matlab files.
 
 _Used Libraries_	
 In order to make possible to run the aforementioned demo you must include in your build path the following libraries:
