@@ -112,7 +112,7 @@ In order to make possible to run the aforementioned demo you must include in you
 
 1. jamtio - http://sourceforge.net/projects/jmatio/	
 2. javabuilder (matlab R2012a 7.17) - http://www.mathworks.com/products/compiler/mcr/
-3. smal - 
+3. smal - *java/bin* folder
 	
 
 
