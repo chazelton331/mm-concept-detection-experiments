@@ -96,7 +96,7 @@ You can update these variables by implementing the code below.
 
 ###More Semantics for Running the Code ###
 
--In our example we have extracted Surf Descriptors with VLAD encoding and by applying PCA,using the code included in <code>SurfExtraction</code>.
+-In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>.
 
 -In <code>Detector</code>  
 
@@ -108,7 +108,7 @@ You can update these variables by implementing the code below.
 -In <code>IOUtil</code> 
 
 _Used Libraries_	
-In order to make possible to run the aforementioned demos you must insert in matlab path the libraries bellow:
+In order to make possible to run the aforementioned demo you must include in your build path the following libraries:
 
 1. jamtio - http://sourceforge.net/projects/jmatio/	
 2. javabuilder (matlab R2012a 7.17) - http://www.mathworks.com/products/compiler/mcr/
