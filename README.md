@@ -90,7 +90,7 @@ To extract features you need to configure in your build path the following code,
 With this code you can extract SURF and SIFT (from BoofCV) descriptors with VLAD encoding and reduce dimension of vector by applying PCA.
 
 * Necessary Data	
-The file _twitter\_trainingparams.m_ includes variables from twitter2013 dataset which are necessary to resume the incremental procedure.
+The file _twittertraining\_params.m_ includes variables from twitter2013 dataset which are necessary to resume the incremental procedure.
 You can upadate these variables by implementing the code below.
 
 
