@@ -2,7 +2,7 @@ mm-concept-detection-experiments
 ================================
 
 ## Table of Contents
-* [SMaL](#SMaL)
+* [SMaL](#smal)
 * [SMaL using Matlab](#SMaL using Matlab)
 * [LiveScript](#livescript)
 * [Ruby](#ruby)
