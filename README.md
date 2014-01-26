@@ -109,7 +109,7 @@ You can update these variables by implementing the code below.
 
 -In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>. 
 
-- You can also also extract features with spatial pyramids as described in [2] by performin Sum pooling. For spatial pyramids code provided in 
+- You can also also extract features with spatial pyramids as described in [2] by performing Sum pooling. For spatial pyramids code provided in 
 <code>SpatialPyramids </code> in <code>gr.iti.mklab.detector.featureExtraction</code> package.
 
 -In <code>Detector</code> is the integration of matlab code. We call the matlab functions to apply the incremental procedure of SMaL and classify the data points.
