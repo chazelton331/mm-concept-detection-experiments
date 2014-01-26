@@ -3,16 +3,12 @@ mm-concept-detection-experiments
 
 ## Table of Contents
 * [SMaL](#smal)
-* [SMaL using Matlab](#SMaL using Matlab)
-* [LiveScript](#livescript)
-* [Ruby](#ruby)
-* [Python](#python)
-* [JavaScript](#javascript)
-* [Objective-C](#objective-c)
-* [Scala](#scala)
-* [Erlang](#erlang)
-* [Git](#git)
-* [License](#license)
+* [Distribution Information](#distribution-information)
+* [SMaL using Matlab](#smal-using-matlab)
+* [More Semantics for Running the Code in Matlab](#more-semantics-for-running-the-code)
+* [Matlab Results](#matlab-results)
+* [SMaL using java](#smal-using-java)
+* [More Semantics for Running the Code in java](#more-semantics-for-running-the-code-1)
 
 ### SMaL
 
