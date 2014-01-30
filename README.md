@@ -1,6 +1,17 @@
 mm-concept-detection-experiments
 ================================
 
+## Table of Contents
+* [SMaL](#smal)
+* [Distribution Information](#distribution-information)
+* [SMaL using Matlab](#smal-using-matlab)
+* [More Semantics for Running the Code in Matlab](#more-semantics-for-running-the-code)
+* [Matlab Results](#matlab-results)
+* [SMaL using java](#smal-using-java)
+* [More Semantics for Running the Code in java](#more-semantics-for-running-the-code-1)
+
+### SMaL
+
 ###A framework (SMaL) for various multimedia concept detection experiments from social networks.
 
 We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of Matlab and Java scripts that enable the multimedia detection. More specifically, from the datasets users may extract SIFT/color-SIFT descriptos (Dense sampling) with VLAD encoding and can reduce their dimensionality by PCA. Then, the descriptors are used to compute the eigenfunctions and top-k eigenvalues [4]. Approximate Laplacian Eigenmaps are derived improving the time complexity. Finally, these Laplacian Eigenmaps are used as new feature vectors to a classifier [2]. Furthemore, if the test set is unknown user can use an Incremental method to combine both the training and test data and extract the Laplacian Eigenmaps [3]. The prediction scores are ranked according to various accuracy metrics (ex. mean Average Precision, AUC curves, F1-score etc.). 
@@ -96,7 +107,10 @@ You can update these variables by implementing the code below.
 
 ###More Semantics for Running the Code ###
 
--In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>.
+-In our example we have extracted Surf Descriptors with VLAD encoding and applying PCA,using the code included in <code>SurfExtraction</code>. 
+
+- You can also also extract features with spatial pyramids as described in [2] by performing Sum pooling. For spatial pyramids code provided in 
+<code>SpatialPyramids </code> in <code>gr.iti.mklab.detector.featureExtraction</code> package.
 
 -In <code>Detector</code> is the integration of matlab code. We call the matlab functions to apply the incremental procedure of SMaL and classify the data points.
 
