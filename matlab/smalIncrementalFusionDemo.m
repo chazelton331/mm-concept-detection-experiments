@@ -178,14 +178,14 @@ for current_split=1:nr_splits
     % score = normalizeMatrix(score,4);
     
     %======================make dir to save experiments================
-    predictionsDir = [dir_predictions,collectionFolder,'Incremental\Fusion'];
+    predictionsDir = [dir_predictions,collectionFolder,'Incremental/Fusion'];
     if (exist(predictionsDir,'dir')==0)
         mkdir (predictionsDir)
     end
     addpath(dir_predictions);
     addpath(predictionsDir);
     
-    save([predictionsDir, '\predictionScore_', num2str(num_experiment),'split_',num2str(current_split)],'score');
+    save([predictionsDir, '/predictionScore_', num2str(num_experiment),'split_',num2str(current_split)],'score');
     predictionEnd =toc(predictionStart);
     fprintf('train SVM computed at %d minutes and %f seconds\n',floor(predictionEnd/60),rem(predictionEnd,60));
     
@@ -221,8 +221,8 @@ for current_split=1:nr_splits
 end
 fprintf('MiAP %6.4f \n',avgmIAP);
 fprintf('MAP %6.4f \n',avgmAP);
-save([predictionsDir, '\mIAP'],'mIAP');
-save([predictionsDir, '\mAP'],'mAP');
+save([predictionsDir, '/mIAP'],'mIAP');
+save([predictionsDir, '/mAP'],'mAP');
 
 
 

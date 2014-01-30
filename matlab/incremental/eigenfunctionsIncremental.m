@@ -109,4 +109,3 @@ end
 %%% make sure approx. eigenvectors are of unit length.
 suu2 = sqrt(sum(uu2.^2));
 uu2 = uu2 ./ (ones(nPoints,1) * suu2);
-
