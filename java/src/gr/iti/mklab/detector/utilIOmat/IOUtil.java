@@ -1,14 +1,7 @@
 package gr.iti.mklab.detector.utilIOmat;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import gr.iti.mklab.detector.utilIOmat.StringConstants;
 
 import com.jmatio.io.MatFileReader;
 import com.jmatio.types.MLDouble;
@@ -41,17 +34,17 @@ public class IOUtil {
 	 */
 	public static double[][] trainLabels; //
 	
+	public static double[][] testLabels; //
 	
 	
-	
-	public IOUtil(double[][] ddtrain,double[][] uutrain,double[][] bins_out,double[][] uu1,double[] jj,double[][] trainLabels) {
+	public IOUtil(double[][] ddtrain,double[][] uutrain,double[][] bins_out,double[][] uu1,double[] jj,double[][] trainLabels,double[][] testLabels) {
 		this.ddtrain = ddtrain;
 		this.uutrain = uutrain;
 		this.bins_out = bins_out;
 		this.uu1 = uu1;
 		this.jj = jj;
 		this.trainLabels = trainLabels;
-		
+		this.testLabels = testLabels;
 	}	
 
 
@@ -73,7 +66,11 @@ public class IOUtil {
 		MLDouble mljj = (MLDouble)mlArrayRetrived.getField("jj");
 		MLDouble mltrainLabels = (MLDouble)mlArrayRetrived.getField("trainLabels");
 		
-		MLDouble mltestLabels = (MLDouble)mlArrayRetrived.getField("testLabels");
+		/*
+		 * only for validation purposes
+		 */
+		
+//		MLDouble mltestLabels = (MLDouble)mlArrayRetrived.getField("testLabels");
 
 
 		/**
@@ -108,8 +105,13 @@ public class IOUtil {
 		trainLabels = new double[mltrainLabels.getM()][mltrainLabels.getN()];
 		trainLabels=  mltrainLabels.getArray();
 		
+		/*
+		 * only for validation purposes
+		 */
+//		testLabels = new double[mltestLabels.getM()][mltestLabels.getN()];
+//		testLabels=  mltestLabels.getArray();
 		
-		
+		testLabels = null;
 
 //		for (int i=0; i<mltrainLabels.getM();i++){
 //			for(int j=0;j<mltrainLabels.getN();j++){
@@ -120,7 +122,7 @@ public class IOUtil {
 //			System.out.println();
 //		}
 
-		return new IOUtil(ddtrain,uutrain,bins_out,uu1,jj,trainLabels);
+		return new IOUtil(ddtrain,uutrain,bins_out,uu1,jj,trainLabels,testLabels);
 
 	}
 
@@ -147,28 +149,9 @@ public class IOUtil {
 	public double[][] gettrainLabels(){
 		return trainLabels;
 	}
-	 public static List<String> readFileToStringList(String textFile){
-			List<String> stringList = new ArrayList<String>();
-			BufferedReader reader = null;
-			try {
-				reader = new BufferedReader(
-						new InputStreamReader(new FileInputStream(textFile), StringConstants.UTF8));
-				String line = null;
-				while ( (line = reader.readLine()) != null){
-					stringList.add(line);
-				}
-				reader.close();
-			} catch (IOException e){
-				e.printStackTrace();
-				if (reader != null){
-					try {
-						reader.close();
-					} catch (IOException ex){
-						ex.printStackTrace();
-					}
-				}
-			}
-			return stringList;
-		}
+	
+	public double[][] gettestLabels(){
+		return testLabels;
+	}
 	
 }

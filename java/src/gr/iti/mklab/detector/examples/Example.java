@@ -3,21 +3,25 @@ package gr.iti.mklab.detector.examples;
 import gr.iti.mklab.detector.featureExtraction.SurfExtraction;
 import gr.iti.mklab.detector.smal.Detector;
 
-import gr.iti.mklab.detector.utilIOmat.IOUtil;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class Example {
 
 	public static void main(String[] args) throws Exception {
 
-
-		File imageFolder = new File("D:/lmantziou/Datasets/twitter2013/");
+		
+					
+		
+		File imageFolder = new File("D:/lena/Datasets/Yahoo Grand Challenge/images/train");
 		String idfile = "testImageIds.txt";
 
 		System.out.println("Start Feature Extraction");
-		double[][] descriptor = SurfExtraction.featureExtraction(imageFolder, idfile );
+		double[][] descriptors = SurfExtraction.featureExtraction(imageFolder, idfile );
 
 
 		//		for (int row = 0; row < descriptor.length; row++) {
@@ -28,17 +32,17 @@ public class Example {
 		//	    }
 
 		System.out.println("Classify images");
-		double[][] con = Detector.ComputeConceptDetector(descriptor);
+		double[][] con = Detector.ComputeConceptDetector(descriptors);
 
 
-		double[] concept = new double[con.length];
+		double[] concepts = new double[con.length];
 
 		for(int i=0; i<con.length;i++) {
-			concept[i] = con[i][0];
+			concepts[i] = con[i][0];
 		}
 
 		for (int j=0;j<con.length;j++){
-			System.out.println(concept[j]);
+			System.out.println(concepts[j]);
 		}
 
 		//		IOUtil matStructure = IOUtil.readingMatlabFile();
