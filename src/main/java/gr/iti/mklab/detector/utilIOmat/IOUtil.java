@@ -48,11 +48,11 @@ public class IOUtil {
 	}	
 
 
-	public static IOUtil readingMatlabFile() throws IOException{
+	public static IOUtil readingMatlabFile(String matlabFile) throws IOException{
 
 
 		//array name
-		File file = new File("twitter_training_params.mat");
+		File file = new File(matlabFile);
 		MatFileReader reader = new MatFileReader( file );
 
 		//read array form file

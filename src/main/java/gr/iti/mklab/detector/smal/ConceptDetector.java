@@ -1,7 +1,9 @@
 package gr.iti.mklab.detector.smal;
-import java.io.IOException;
-
 import gr.iti.mklab.detector.utilIOmat.IOUtil;
+
+import java.io.IOException;
+import java.io.Serializable;
+
 import smal.smalDetector;
 
 import com.mathworks.extern.java.MWStructArray;
@@ -31,40 +33,53 @@ import com.mathworks.toolbox.javabuilder.MWNumericArray;
  *
  */
 
-public class Detector {
+public class ConceptDetector implements Serializable {
 	
-	static smalDetector smal = null;
-	static Object[] testEigenvector = null;
-	static Object[] classificationResult = null;
-
-	static MWStructArray incrementalParams = null;
-	static MWStructArray classifierParams = null;
-	static MWNumericArray predictedScore;
-	static MWNumericArray predictedConcept;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9082963444972257983L;
 	
-	static double[][] uutest;
+	private String matlabFile;
 
-
-	static double[][] concept;
-	static double[][] score;
-	public static double[][] ComputeConceptDetector(double[][] vlVector) throws IOException{
+	private smalDetector smal;
 	
+	public ConceptDetector(String matlabFile) throws MWException, IOException {
+		this.matlabFile = matlabFile;
+		System.out.println("++++++++++++++++++++++ Create smalDetector ++++++++++++++++++++++++++++++");
+		this.smal = new smalDetector();
+	}
+	
+	
+	public double[][] detect(double[][] vlVector) throws IOException, MWException {
+		
+		System.out.println("++++++++++++++++++++++ Read Matlab File ++++++++++++++++++++++++++++++");
+		IOUtil matStructure = IOUtil.readingMatlabFile(matlabFile);
+		
+		System.out.println("++++++++++++++++++++++ Detect Concepts ++++++++++++++++++++++++++++++");
+		double[][] uutest = null;
+		String[] ParamsStructFieldsIncremental={"vtest","bins_out", "uu1", "jj"};
+		MWStructArray incrementalParams= new MWStructArray(1,1, ParamsStructFieldsIncremental);
+		
+		String[] ParamsStructFieldsClassifier={"uutrain","uutest", "trainLabels", "method"};
+		MWStructArray classifierParams= new MWStructArray(1,1, ParamsStructFieldsClassifier);
+		
+		MWNumericArray predictedScore = null;
+		MWNumericArray predictedConcept = null;
+		
+		Object[] classificationResult = null;
+		Object[] testEigenvector = null;
+		
 		try {
-			smal = new smalDetector();
-			
-			IOUtil matStructure = IOUtil.readingMatlabFile();
-			
+	
 			/**
 			 * compute the test eigenvectors from vlad vector by interopolating in training set
 			 */
 
 			/*
-			 * Initialize parameters
-			 * import parameters in matlab methods
+			 * Initialize parameters import parameters in matlab methods
 			 */
-			String[] ParamsStructFieldsIncremental={"vtest","bins_out", "uu1", "jj"};
-			incrementalParams= new MWStructArray(1,1, ParamsStructFieldsIncremental);
-			incrementalParams.set("vtest",1,vlVector);
+			incrementalParams.set("vtest",1, vlVector);
 			incrementalParams.set("bins_out",1,matStructure.getbins_out());
 			incrementalParams.set("uu1", 1,matStructure.getuu1());
 			incrementalParams.set("jj", 1,matStructure.getjj());
@@ -87,7 +102,7 @@ public class Detector {
 			 *  2. in "method" parameter--> smooth to implement the smooth function.
 			 *  	You have to define the training eigenvalues to compute the smooth function. For this reason
 			 *  	you have to set another parameter in classifierParams. See bellow. 
-			 *  	Also, you have to define the the weight of labeled samples. Default is Ë=100.
+			 *  	Also, you have to define the the weight of labeled samples. Default is ï¿½=100.
 			 *  Thus the ParamsStructFieldsClassifier could be written as:
 			 *  a. String[] ParamsStructFieldsClassifier={"uutrain","uutest", "trainLabels", "method",};
 			 *  b. String[] ParamsStructFieldsClassifier={"uutrain","uutest", "trainLabels", "method","parameter"};
@@ -100,8 +115,6 @@ public class Detector {
 			 * import parameters in matlab methods
 			 */
 
-			String[] ParamsStructFieldsClassifier={"uutrain","uutest", "trainLabels", "method"};
-			classifierParams= new MWStructArray(1,1, ParamsStructFieldsClassifier);
 			classifierParams.set("uutrain",1,matStructure.getuutrain());
 			classifierParams.set("uutest",1,uutest);
 			classifierParams.set("trainLabels", 1,matStructure.gettrainLabels());
@@ -118,30 +131,40 @@ public class Detector {
 			predictedConcept = (MWNumericArray)classificationResult[1];
 
 			// convert to int to use it in java functions
-			concept = (double[][])predictedConcept.toArray();
-			
-			//			System.out.println(concept);
+			double[][] concept = (double[][])predictedConcept.toArray();
 			
 			// if you need to return the score of predicted images, then you must return this variable
-			score = (double[][]) predictedScore.toArray(); 
+			double[][] score = (double[][]) predictedScore.toArray(); 
 
+			double[][] concepts = new double[concept.length][2];
+
+			for(int i=0; i<concept.length;i++) {
+				concepts[i][0] = concept[i][0];
+				concepts[i][1] = score[i][0];
+			}
+			
+			return concepts;
+			
 		} catch (MWException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			// free native resources
-			smal.dispose();
+			//smal.dispose();
 			MWArray.disposeArray(incrementalParams);
-			MWArray.disposeArray(predictedScore);
-			MWArray.disposeArray(predictedConcept);
-			MWArray.disposeArray(testEigenvector);
-			MWArray.disposeArray(classificationResult);
 			MWArray.disposeArray(classifierParams);
-			MWArray.disposeArray(uutest);
+			if(predictedScore != null)
+				MWArray.disposeArray(predictedScore);
+			if(predictedConcept != null)
+				MWArray.disposeArray(predictedConcept);
+			if(testEigenvector != null)
+				MWArray.disposeArray(testEigenvector);
+			if(classificationResult != null)
+				MWArray.disposeArray(classificationResult);
+			if(uutest != null)
+				MWArray.disposeArray(uutest);
 		}
-
-		return concept;
+		
+		return null;
 	}
-
-
 }

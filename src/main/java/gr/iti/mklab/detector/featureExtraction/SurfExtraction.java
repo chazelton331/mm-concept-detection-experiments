@@ -35,7 +35,7 @@ public class SurfExtraction {
 		int targetLengthMax = 1024;
 
 
-		String learningFolder = "\\\\iti-195/smal/dataset/codebookfiles/";
+		String learningFolder = "/disk2_data/VisualIndex/learning_files/";
 
 
 		String[] codebookFiles = { 
