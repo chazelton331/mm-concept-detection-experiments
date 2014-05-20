@@ -1,0 +1,3 @@
+mvn install:install-file -Dfile=./jamtio.jar -DgroupId=eu.socialsensor -DartifactId=jmatio -Dversion=0.1-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=./javabuilder.jar -DgroupId=eu.socialsensor -DartifactId=javabuilder -Dversion=0.1-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=./smal.jar -DgroupId=eu.socialsensor -DartifactId=smal -Dversion=0.1-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
