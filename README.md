@@ -3,6 +3,7 @@ mm-concept-detection-experiments
 
 ## Table of Contents
 * [SMaL](#smal)
+* [SIML](#siml)
 * [Distribution Information](#distribution-information)
 * [SMaL using Matlab](#smal-using-Matlab)
 * [More Semantics for Running the Code in Matlab](#more-semantics-for-running-the-code)
@@ -16,13 +17,13 @@ mm-concept-detection-experiments
 
 We make available a dataset of Flickr [1a] and Twitter [1b] images and a set of Matlab and Java scripts that enable the multimedia detection. More specifically, from the datasets users may extract SIFT/color-SIFT descriptos (Dense sampling) with VLAD encoding and can reduce their dimensionality by PCA. Then, the descriptors are used to compute the eigenfunctions and top-k eigenvalues [4]. Approximate Laplacian Eigenmaps are derived improving the time complexity. Finally, these Laplacian Eigenmaps are used as new feature vectors to a classifier [2]. The prediction scores are ranked according to various accuracy metrics (ex. mean Average Precision, AUC curves, F1-score etc.).
 
+* The master branch of this repository contains ongoing Matlab and java files which form the current stable version of the framework
 
 ### SIML
 ###A framework (SIML) for Incremental concept detection based on SMaL.
 
 Extending SMaL to tackle the new unlabelled data in real-time applications, we devised SIML, an online implementation by computing the eigenvectors of unlabelled data incrementally [3]. SIML interpolates new data to the eigenfunctions derived from the training set. In particular, in SIML the unlabelled data are imported in batches to compute the convergence eigenvectors. 
 
-* The master branch of this repository contains ongoing Matlab and java files which form the current stable version of the framework. 
 
 [1] Datasets collected using a set of manually selected groups [1a] or hashtags [1b]. Datasets are password protected (password: socialsensor).	 
 [1a] http://www.socialsensor.eu/datasets/mm-concept-detection-dataset-2013/mm-concept-detection-datasets.zip	
