@@ -1,7 +1,12 @@
 package gr.iti.mklab.detector.utilIOmat;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jmatio.io.MatFileReader;
 import com.jmatio.types.MLDouble;
@@ -152,6 +157,30 @@ public class IOUtil {
 	
 	public double[][] gettestLabels(){
 		return testLabels;
+	}
+	
+	public static List<String> readFileToStringList(String textFile){
+		List<String> stringList = new ArrayList<String>();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(
+					new InputStreamReader(new FileInputStream(textFile), StringConstants.UTF8));
+			String line = null;
+			while ( (line = reader.readLine()) != null){
+				stringList.add(line);
+			}
+			reader.close();
+		} catch (IOException e){
+			e.printStackTrace();
+			if (reader != null){
+				try {
+					reader.close();
+				} catch (IOException ex){
+					ex.printStackTrace();
+				}
+			}
+		}
+		return stringList;
 	}
 	
 }

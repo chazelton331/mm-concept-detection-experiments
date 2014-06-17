@@ -167,4 +167,56 @@ public class ConceptDetector implements Serializable {
 		
 		return null;
 	}
+	
+	
+	/**
+	 * SMaL Implementation	
+	 * @param vlVector
+	 * @return
+	 * @throws IOException
+	 * @throws MWException
+	 */
+
+	public double[][] detectSMaL(double[][] vlVectorTrain, double[][] vlVectorTest) throws IOException, MWException {
+		System.out.println("++++++++++++++++++++++ Read Matlab File ++++++++++++++++++++++++++++++");
+		IOUtil matStructure = IOUtil.readingMatlabFile(matlabFile);
+		
+		System.out.println("++++++++++++++++++++++ Detect Concepts using SMaL ++++++++++++++++++++++++++++++");
+		
+		String[] ParamsStructFields={"vtrain","vtest","trainLabels", "method","NUMEVECS", "SIGMA"};	
+		Object[] classificatinoresult = null;
+
+		MWStructArray params = new MWStructArray(1,1, ParamsStructFields);
+		MWNumericArray predictedScore =null;
+		try {
+
+			params.set("vtrain",1,vlVectorTrain);
+			params.set("vtest",1, vlVectorTest);
+			params.set("trainLabels",1,matStructure.gettrainLabels());
+			params.set("method", 1, "1"); // 1 for linear 2 for "smooth" instead of linear, for the smooth function 
+			//			params.set("parameter", 1, "5"); // optional
+			//			params.set("ddtrain", 1, "ddtrain"); // for the smooth function
+			params.set("NUMEVECS",1,500); //optional, default =500
+			params.set("SIGMA", 1, 0.2); //optional, default = 0.2
+			
+			classificatinoresult = smal.smal(1, params);		
+			//Alternatively
+			predictedScore = (MWNumericArray)classificatinoresult[0];
+
+		} catch (MWException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			// free native resources
+			smal.dispose();
+			MWArray.disposeArray(params);
+
+			if(predictedScore != null)
+				MWArray.disposeArray(predictedScore);
+			if(classificatinoresult != null)
+				MWArray.disposeArray(classificatinoresult);
+		}
+		return null;
+	}
+
 }
